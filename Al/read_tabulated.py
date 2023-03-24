@@ -101,4 +101,4 @@ energy_tot = energy_tot.reshape((-1, 1))
 pout = np.hstack((energy_tot, press_tot))
 print(pout)
 
-np.savetxt(name+"_"+str(den_index)+"_"+str(temp_index)+".txt", pout)
+np.savetxt(name+"_"+str(den_index)+"_"+str(temp_index)+"_den_temp.txt", pout)
