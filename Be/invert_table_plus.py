@@ -15,9 +15,9 @@ lgtempmin = np.log10(K/5)  # change
 lgtempmax = 5 + np.log10(K/5)  # change
 dlgtemp = (lgtempmax-lgtempmin)/(temp_index-1)
 
-energy_index = 31
-lgenergymin = 10.4
-lgenergymax = 16.4
+energy_index = 29
+lgenergymin = 10.6
+lgenergymax = 16.2
 dlgenergy = (lgenergymax-lgenergymin)/(energy_index-1)
 
 data = np.loadtxt("Be_21_21_den_temp.txt")
@@ -80,11 +80,13 @@ data_new = 10**np.array(data_new)
 print(data_new)
 
 with open(name+"_"+str(den_index)+"_"+str(energy_index)+"_den_energy_plus.txt", "w") as f:
-    f.write(str(den_index)+'\n')
-    f.write(str(energy_index)+'\n')
-    f.write(str(lgdenmin) + '\n')
-    f.write(str(lgdenmax) + '\n')
-    f.write(str(lgenergymin) + '\n')
-    f.write(str(lgenergymax) + '\n')
+    f.write('#'+' ')
+    f.write(str(den_index)+' ')
+    f.write(str(dlgden)+' ')
+    f.write(str(10**lgdenmin)+'\n')
+    f.write('#'+' ')
+    f.write(str(energy_index)+' ')
+    f.write(str(dlgenergy)+' ')
+    f.write(str(10**lgenergymin) + '\n')
     np.savetxt(f, data_new)
 f.close()
